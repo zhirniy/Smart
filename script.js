@@ -1,5 +1,5 @@
-var select, url;//
-/////
+var select, url;
+
 var value={};
 var url_search;
 
