@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>GitHub search</title>
+	 <script src="script.js"></script>
+
+     <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <form>
+    <div id="div1" style="display: block">
+	<select id="field1" name="field1" placeholder="Field..." onchange="change(this.id)">
+	    <option  value="0" disabled selected>Field...</option>
+		<option  value="1">Size</option>
+		<option  value="2">Forks</option>
+		<option  value="3">Stars</option>
+		<option  value="4">Followers</option>
+	</select>
+	<select name="operator1" id="operator1" placeholder="Operator..." onchange="change(this.id)">
+	    <option  value="" disabled selected>Operator...</option>
+		<option  value=">">></option>
+		<option  value="<" ><</option>
+		<option  value="=">=</option>
+	</select>
+	<input type="number" id="number1" name="number1" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
+	<input type="button" id="button1" name="reset1" value="Delete" >
+	</div>
+	<div id="div2" style="display: none">
+	<select name="field2" id="field2" placeholder="Field..." onchange="change(this.id)">
+	    <option  value="" disabled selected>Field...</option>
+		<option  value="size">Size</option>
+		<option  value="forks">Forks</option>
+		<option  value="stars">Stars</option>
+		<option  value="followers">Followers</option>
+	</select>
+	<select name="operator2" id="operator2" placeholder="Operator..." onchange="change(this.id)">
+	    <option  value="" disabled selected>Operator...</option>
+		<option  value=">" >></option>
+		<option  value="<" ><</option>
+		<option  value="=">=</option>
+	</select>
+	<input type="number" name="number2" id="number2" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
+	<input type="button" name="reset" id="button2" value="Delete" >
+	</div>
+	<hr>
+	<input type="button" id="btnGet" name="" value="Apply">
+	<input id="Clear" type="button" name="" value="Clear">
+	<input id="Add_Rule" type="button" name="" value="Add Rule">
+    </form>
+    <p id="output"></p> 
+
+
+   
+
+</body>
+</html>

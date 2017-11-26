@@ -1,5 +1,73 @@
+var select, url;
+var value={};
+var url_search;
+
+  var operator1 = document.getElementById("operator1");
+ 
+  function change(id) {
+   select = document.getElementById(id);
+   value[id] = select.options[select.selectedIndex].text;
+} 
+  function change_number(id) {
+   select = document.getElementById(id);
+   value[id] = select.value;
+} 
+  
+
 
 window.onload = function () {
+  
+
+  
+  document.getElementById("btnGet").onclick = function () {
+  url_search=undefined;
+  url = "https://api.github.com/search/repositories?q=";
+  for (var key in value) {
+       if (value.hasOwnProperty(key)) {
+       if(url_search===undefined){
+       url_search = value[key];
+       }
+       else{
+       url_search+=value[key];}
+      }
+}
+ //console.log(url_search);
+  url = "https://api.github.com/search/repositories?q=" + url_search;
+  //document.getElementById("output").innerHTML = url_search;
+  //console.log(url);
+  var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
+  xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
+   xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) { // если получен ответ
+                        if (xhr.status == 200) { // и если статус код ответа 200
+                            var text = JSON.parse(xhr.responseText);
+                          //text = xhr.responseText;
+                            var count;
+                            for(var i = 0; i < text.items.length; i++){
+                              if(count===undefined){
+                               count = "id пользователя:"+ text.items[i].id  +"&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].owner.html_url + "<br>";  
+                              }
+                              else{
+                              count += "id пользователя:"+ text.items[i].id + "&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].owner.html_url+ "<br>";  
+                              }
+
+
+
+                            }
+                            //alert(count);
+                           
+                           document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
+                           count;    
+                          // for (var i = 0; i<1; i++){
+                          //  text.items[i].id;};
+                           //document.getElementById("output").innerHTML = text;
+                        }
+                    }
+                }
+                
+  xhr.send();    
+  }       
+
   var add = document.getElementById("Add_Rule");
   var div2 = document.getElementById("div2");
   var div1 = document.getElementById("div1");
@@ -9,10 +77,25 @@ window.onload = function () {
 
 
 
-   add.addEventListener("click",
+add.addEventListener("click",
                 function () {
-             
-     div2.style.display = "block";
+      if(div1.style.display == "none"){
+        div1.style.display = "block"; 
+        div2.style.display = "none";
+      } else{
+      div2.style.display = "block";  }         
+    
+                   },
+            false);
+
+
+  add.addEventListener("click",
+                function () {
+      if(div2.style.display == "none"){
+        div2.style.display = "block"; 
+      } else if (div1.style.display == "none"){
+      div1.style.display = "block";  }         
+    
                    },
             false);
 
@@ -39,4 +122,7 @@ window.onload = function () {
             false);
 
 
+      
 }
+
+
