@@ -5,10 +5,9 @@ var url_search;
 
   var operator1 = document.getElementById("operator1");
  
-  function change(id) {
-   select = document.getElementById(id);
-   value[id] = select.options[select.selectedIndex].text;
-} 
+  function change(params,id) {
+      value[id] = params;
+ } 
   function change_number(id) {
    select = document.getElementById(id);
    value[id] = select.value;
@@ -34,7 +33,8 @@ window.onload = function () {
 }
  //console.log(url_search);
   url = "https://api.github.com/search/repositories?q=" + url_search;
-  //document.getElementById("output").innerHTML = url_search;
+  //document.getElementById("output").innerHTML = url; 
+  document.getElementById("output").innerHTML = url_search;
   //console.log(url);
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
@@ -46,10 +46,10 @@ window.onload = function () {
                             var count;
                             for(var i = 0; i < text.items.length; i++){
                               if(count===undefined){
-                               count = "id пользователя:"+ text.items[i].id  +"&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].owner.html_url + "<br>";  
+                               count = "id пользователя:"+ text.items[i].id  +"&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].html_url + "<br>";  
                               }
                               else{
-                              count += "id пользователя:"+ text.items[i].id + "&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].owner.html_url+ "<br>";  
+                              count += "id пользователя:"+ text.items[i].id + "&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].html_url+ "<br>";  
                               }
 
 
