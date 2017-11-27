@@ -8,11 +8,14 @@ var url_search;
   function change(params,id) {
       value[id] = params;
  } 
+ function change_(params,id) {
+      value[id] ="\+" + params;
+ } 
   function change_number(id) {
    select = document.getElementById(id);
    value[id] = select.value;
 } 
-  
+
 
 
 window.onload = function () {
@@ -31,11 +34,8 @@ window.onload = function () {
        url_search+=value[key];}
       }
 }
- //console.log(url_search);
+
   url = "https://api.github.com/search/repositories?q=" + url_search;
-  //document.getElementById("output").innerHTML = url; 
-  document.getElementById("output").innerHTML = url_search;
-  //console.log(url);
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
    xhr.onreadystatechange = function () {
@@ -52,16 +52,11 @@ window.onload = function () {
                               count += "id пользователя:"+ text.items[i].id + "&nbsp&nbsp" + "Полное имя:"+ text.items[i].full_name +"&nbsp&nbsp" +"url:"+ text.items[i].html_url+ "<br>";  
                               }
 
-
-
-                            }
-                            //alert(count);
+                           }
                            
                            document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
                            count;    
-                          // for (var i = 0; i<1; i++){
-                          //  text.items[i].id;};
-                           //document.getElementById("output").innerHTML = text;
+
                         }
                     }
                 }
@@ -75,6 +70,12 @@ window.onload = function () {
   var button1 = document.getElementById("button1");
   var button2 = document.getElementById("button2");
   var clear = document.getElementById("Clear");
+  var field1 = document.getElementById("field1");
+  var field2 = document.getElementById("field2");
+  var operator1 = document.getElementById("operator1");
+  var operator2 = document.getElementById("operator2");
+  var number1 = document.getElementById("number1");
+  var number2 = document.getElementById("number2");
 
 
 
@@ -105,6 +106,10 @@ add.addEventListener("click",
                 function () {
                   
      div1.style.display = "none";
+     field1.value = "";
+     operator1.value = "";
+     number1.value = "";
+
                           },
             false);
 
@@ -112,6 +117,9 @@ add.addEventListener("click",
                 function () {
                   
      div2.style.display = "none";
+     field2.value = "";
+     operator2.value = "";
+     number2.value = "";
                           },
             false);
 

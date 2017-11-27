@@ -10,8 +10,8 @@
 <body>
     <form>
     <div id="div1" style="display: block">
-	<select id="field1" name="field1" placeholder="Field..." onchange="change(this.value, this.id)">
-	    <option  value="0" disabled selected>Field...</option>
+	<select name="field1" id="field1" placeholder="Field..." onchange="change(this.value, this.id)">
+	    <option  value="" disabled selected>Field...</option>
 		<option  value="size">size</option>
 		<option  value="forks">forks</option>
 		<option  value="stars">stars</option>
@@ -27,7 +27,7 @@
 	<input type="button" id="button1" name="reset1" value="Delete" >
 	</div>
 	<div id="div2" style="display: none">
-	<select name="field2" id="field2" placeholder="Field..." onchange="change(this.text, this.id)">
+	<select name="field2" id="field2" placeholder="Field..." onchange="change_(this.value, this.id)">
 	    <option  value="" disabled selected>Field...</option>
 		<option  value="size">size</option>
 		<option  value="forks">forks</option>
@@ -36,9 +36,9 @@
 	</select>
 	<select name="operator2" id="operator2" placeholder="Operator..." onchange="change(this.value, this.id)">
 	    <option  value="" disabled selected>Operator...</option>
-		<option  value=">" >></option>
-		<option  value="<" ><</option>
-		<option  value="=">=</option>
+		<option  value=":>" >></option>
+		<option  value=":<" ><</option>
+		<option  value=":">=</option>
 	</select>
 	<input type="number" name="number2" id="number2" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
 	<input type="button" name="reset" id="button2" value="Delete" >
