@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-	<title>GitHub search</title>
-	 <script src="script.js"></script>
-
-     <link href="style.css" rel="stylesheet">
+	<meta charset="utf-8">
+    <title>GitHub search</title>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
-    <form>
-    <div id="div1" style="display: block">
-	<select name="field1" id="field1" placeholder="Field..." onchange="change(this.value, this.id)">
-	    <option  value="" disabled selected>Field...</option>
-		<option  value="size">size</option>
-		<option  value="forks">forks</option>
-		<option  value="stars">stars</option>
-		<option  value="followers">followers</option>
-	</select>
-	<select name="operator1" id="operator1" placeholder="Operator..." onchange="change(this.value, this.id)">
-	    <option  value="" disabled selected>Operator...</option>
-		<option  value=":>">=></option>
-		<option  value=":<" >=<</option>
-		<option  value=":">=</option>
-	</select>
-	<input type="number" id="number1" name="number1" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
-	<input type="button" id="button1" name="reset1" value="Delete" >
-	</div>
-	<div id="div2" style="display: none">
-	<select name="field2" id="field2" placeholder="Field..." onchange="change_(this.value, this.id)">
-	    <option  value="" disabled selected>Field...</option>
-		<option  value="size">size</option>
-		<option  value="forks">forks</option>
-		<option  value="stars">stars</option>
-		<option  value="followers">followers</option>
-	</select>
-	<select name="operator2" id="operator2" placeholder="Operator..." onchange="change(this.value, this.id)">
-	    <option  value="" disabled selected>Operator...</option>
-		<option  value=":>" >></option>
-		<option  value=":<" ><</option>
-		<option  value=":">=</option>
-	</select>
-	<input type="number" name="number2" id="number2" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
-	<input type="button" name="reset" id="button2" value="Delete" >
-	</div>
-	<hr>
-	<input type="button" id="btnGet" name="" value="Apply">
-	<input id="Clear" type="button" name="" value="Clear">
-	<input id="Add_Rule" type="button" name="" value="Add Rule">
-    </form>
-    <p id="output"></p> 
+<body id="body">
+<script language="JavaScript" type="text/javascript" src="dynamicTable.js"></script>
 
+<div class="req_body">
+        <form method="post" action="">
+            <table id="t_equipment_add" width="50%" border="1" cellspacing="0" cellpadding="0">
+            <tbody id="dynamic">
+            <td style="display: none">
+            </td>
+            <td>
+            <select name="1" id="field1" placeholder="Field..." onchange="change(this.value, this.id)">
+                <option  value="" disabled selected>Field...</option>
+                <option  value="size">size</option>
+                <option  value="forks">forks</option>
+                <option  value="stars">stars</option>
+                <option  value="followers">followers</option>
+             </select>
+             </td>
+           <td>
+            <select name="2" id="operator1" placeholder="Operator..." onchange="change(this.value, this.id)">
+                <option  value="" disabled selected>Operator...</option>
+                <option  value=":>">=></option>
+                <option  value=":<" >=<</option>
+                <option  value=":">=</option>
+            </select>
+           </td>
+           <td>
+            <input type="number" id="number1" name="3" step="1" size="15" value="" placeholder="Value..." onchange="change_number(this.id)">
+             </td>
+             <td style="border: 0; text-align:center">
+                <input type="button" id="row_add" class="row_add" value="Add Rule"></input>
+                <input type="button" id="row_del" class="row_del" value="Delete"></input>
+             </td>
+            </tbody>
+            </table>
+             <script>
+                new DynamicTable(document.getElementById("dynamic"));
+             </script>
 
-   
+             <input type="button" class="row_del" id="btnGet" name="" value="Apply">
+             <input id="Clear" type="button" name="" value="Clear">
+             </form>
+ </div>
+ <p id="output"></p>
 
 </body>
 </html>

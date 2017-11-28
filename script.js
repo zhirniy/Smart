@@ -76,6 +76,7 @@ window.onload = function () {
   var operator2 = document.getElementById("operator2");
   var number1 = document.getElementById("number1");
   var number2 = document.getElementById("number2");
+  var body = document.getElementById("body");
 
 
 
@@ -125,8 +126,7 @@ add.addEventListener("click",
 
     clear.addEventListener("click",
                 function () {
-     div1.style.display = "block";             
-     div2.style.display = "none";
+     location.reload(true);
                           },
             false);
 
