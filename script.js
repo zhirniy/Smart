@@ -40,7 +40,7 @@ window.onload = function () {
 }
 
   url = "https://api.github.com/search/repositories?q=" + url_search;
-  document.getElementById("output").innerHTML = url_search;
+  //document.getElementById("output").innerHTML = url_search;
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
    xhr.onreadystatechange = function () {
@@ -59,8 +59,8 @@ window.onload = function () {
 
                            }
                            
-                         //  document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
-                         //  count;    
+                           document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
+                           count;    
 
                         }
                     }
