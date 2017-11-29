@@ -1,6 +1,6 @@
 var select, url;
 
-var value=[];
+var value={};
 var url_search;
 
   var operator1 = document.getElementById("operator1");
@@ -17,11 +17,10 @@ var url_search;
       }
  } 
 
-function update(){
- alert ("123");
-}
-
-
+ function update(row, tBody){
+  alert(row);
+  alert(tBody);
+ }
 
 
 window.onload = function () {

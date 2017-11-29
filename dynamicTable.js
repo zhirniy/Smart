@@ -1,3 +1,4 @@
+
 var DynamicTable = (function(GLOB) {
     var RID = 0;
     return function(tBody) {
@@ -39,9 +40,11 @@ var DynamicTable = (function(GLOB) {
             setListeners();
         };
         var _delRow = function(row, tBody) {
+            update(row, tBody);
             tBody.removeChild(row);
             _addNum(tBody);
             setListeners();
+            
         };
         var _addNum = function(tBody) {
             for (var i = 0; i < tBody.rows.length; i++) {
