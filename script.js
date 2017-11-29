@@ -6,15 +6,17 @@ var url_search;
   var operator1 = document.getElementById("operator1");
  
   function change(params,id) {
+      var pattern = /[1-9]{1}\[1\]/;
+      var text = id;
+    
+      if(pattern.test(text)){
+        value[id] ="\+" + params; 
+      }
+      else{
       value[id] = params;
+      }
  } 
- function change_(params,id) {
-      value[id] ="\+" + params;
- } 
-  function change_number(id) {
-   select = document.getElementById(id);
-   value[id] = select.value;
-} 
+
 
 
 
@@ -23,11 +25,11 @@ window.onload = function () {
 
   
   document.getElementById("btnGet").onclick = function () {
-  url_search=undefined;
+  url_search = undefined;
   url = "https://api.github.com/search/repositories?q=";
   for (var key in value) {
        if (value.hasOwnProperty(key)) {
-       if(url_search===undefined){
+       if(url_search === undefined){
        url_search = value[key];
        }
        else{
@@ -36,6 +38,7 @@ window.onload = function () {
 }
 
   url = "https://api.github.com/search/repositories?q=" + url_search;
+ // document.getElementById("output").innerHTML = url_search;
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
    xhr.onreadystatechange = function () {
