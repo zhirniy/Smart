@@ -33,7 +33,7 @@
             </select>
            </td>
            <td>
-            <input type="number" id="number1" name="3" step="1" size="15" value="" placeholder="Value..." onchange="change(this.value, this.name)">
+            <input type="number" id="number1" name="3" step="1" size="15" min="0" value="" placeholder="Value..." onchange="change(this.value, this.name)">
              </td>
              <td>
                 <input type="button" id="row_add" class="row_add" value="Add Rule"></input>
@@ -46,7 +46,7 @@
              </script>
 
              <input type="button" class="row_del" id="btnGet" name="" value="Apply">
-             <input id="Clear" type="button" name="" value="Clear">
+             <input type="button" id="Clear" name="" value="Clear">
              </form>
  </div>
  <p id="output"></p>

@@ -1,6 +1,6 @@
 var select, url;
 
-var value={};
+var value=[];
 var url_search;
 
   var operator1 = document.getElementById("operator1");
@@ -17,13 +17,16 @@ var url_search;
       }
  } 
 
+function update(){
+ alert ("123");
+}
+
 
 
 
 window.onload = function () {
   
 
-  
   document.getElementById("btnGet").onclick = function () {
   url_search = undefined;
   url = "https://api.github.com/search/repositories?q=";
@@ -38,7 +41,7 @@ window.onload = function () {
 }
 
   url = "https://api.github.com/search/repositories?q=" + url_search;
- // document.getElementById("output").innerHTML = url_search;
+  document.getElementById("output").innerHTML = url_search;
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
    xhr.onreadystatechange = function () {
@@ -57,8 +60,8 @@ window.onload = function () {
 
                            }
                            
-                           document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
-                           count;    
+                         //  document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
+                         //  count;    
 
                         }
                     }
@@ -67,69 +70,15 @@ window.onload = function () {
   xhr.send();    
   }       
 
-  var add = document.getElementById("Add_Rule");
-  var div2 = document.getElementById("div2");
-  var div1 = document.getElementById("div1");
-  var button1 = document.getElementById("button1");
-  var button2 = document.getElementById("button2");
+  
   var clear = document.getElementById("Clear");
-  var field1 = document.getElementById("field1");
-  var field2 = document.getElementById("field2");
-  var operator1 = document.getElementById("operator1");
-  var operator2 = document.getElementById("operator2");
-  var number1 = document.getElementById("number1");
-  var number2 = document.getElementById("number2");
-  var body = document.getElementById("body");
+  
+                
 
-
-
-add.addEventListener("click",
-                function () {
-      if(div1.style.display == "none"){
-        div1.style.display = "block"; 
-        div2.style.display = "none";
-      } else{
-      div2.style.display = "block";  }         
-    
-                   },
-            false);
-
-
-  add.addEventListener("click",
-                function () {
-      if(div2.style.display == "none"){
-        div2.style.display = "block"; 
-      } else if (div1.style.display == "none"){
-      div1.style.display = "block";  }         
-    
-                   },
-            false);
-
-
-     button1.addEventListener("click",
+    document.getElementById("Clear").addEventListener("click",
                 function () {
                   
-     div1.style.display = "none";
-     field1.value = "";
-     operator1.value = "";
-     number1.value = "";
-
-                          },
-            false);
-
-     button2.addEventListener("click",
-                function () {
-                  
-     div2.style.display = "none";
-     field2.value = "";
-     operator2.value = "";
-     number2.value = "";
-                          },
-            false);
-
-    clear.addEventListener("click",
-                function () {
-     location.reload(true);
+     window.location.reload();
                           },
             false);
 
