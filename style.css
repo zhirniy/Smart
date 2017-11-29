@@ -1,12 +1,12 @@
   select, input{
-    width:90px;
+    width:80px;
     height: 30px;
     border-radius: 5px;
     margin: 5px;
 
   }
 input[type="number"]{
-    width:90px;
+    width:70px;
     height: 25px;
     border-radius: 5px;
     margin: 5px;
@@ -42,7 +42,7 @@ table{
 
 
 .row_del{
-    width:60px;
+    width:70px;
     height: 30px;
     background-color: red;
     border: 2px solid red;
@@ -53,12 +53,12 @@ table{
 
 
 .row_add{
-    width:100px;
+    width:70px;
     height: 30px;
     background-color: green;
     border: 2px solid green;
     color:white;
-    margin-left:20px;
+    margin-left:10px;
     float:right;
 }
 
