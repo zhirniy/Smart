@@ -17,11 +17,6 @@ var url_search;
       }
  } 
 
- function update(row, tBody){
-  alert(row);
-  alert(tBody);
- }
-
 
 window.onload = function () {
   
@@ -59,8 +54,9 @@ window.onload = function () {
 
                            }
                            
-                           document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
-                           count;    
+                          // document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
+                          // count;   
+                           document.getElementById("output").innerHTML = url_search;
 
                         }
                     }
@@ -71,12 +67,16 @@ window.onload = function () {
 
   
   var clear = document.getElementById("Clear");
+  var input = document.getElementsByTagName('input');
+  var select = document.getElementsByTagName('select');
   
                 
 
     document.getElementById("Clear").addEventListener("click",
                 function () {
-                  
+     input[0].value = "";
+     select[0].value = "";
+     select[1].value = "";               
      window.location.reload();
                           },
             false);

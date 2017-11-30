@@ -40,7 +40,7 @@ var DynamicTable = (function(GLOB) {
             setListeners();
         };
         var _delRow = function(row, tBody) {
-            update(row, tBody);
+        //    update(row, tBody);
             tBody.removeChild(row);
             _addNum(tBody);
             setListeners();
