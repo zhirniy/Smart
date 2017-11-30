@@ -15,11 +15,27 @@ var url_search;
       else{
       value[id] = params;
       }
+
+      access(id);
  } 
+
+ function access(id){
+  var firstChar = id.charAt(2);
+  firstChar = firstChar * 1 + 1;
+//alert(firstChar);
+  id =id.substring(0, 2) + firstChar + id.substring(3, 4);
+ // alert(id);
+  id = document.getElementsByName(id);
+  id[0].removeAttribute("disabled");
+ }
 
 
 window.onload = function () {
   
+  var clear = document.getElementById("Clear");
+  var input = document.getElementsByTagName('input');
+  var select = document.getElementsByTagName('select');
+  input[2].style.display = "none";
 
   document.getElementById("btnGet").onclick = function () {
   url_search = undefined;
@@ -54,9 +70,9 @@ window.onload = function () {
 
                            }
                            
-                          // document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
-                          // count;   
-                           document.getElementById("output").innerHTML = url_search;
+                           document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
+                           count;   
+                          // document.getElementById("output").innerHTML = url_search;
 
                         }
                     }
@@ -66,10 +82,7 @@ window.onload = function () {
   }       
 
   
-  var clear = document.getElementById("Clear");
-  var input = document.getElementsByTagName('input');
-  var select = document.getElementsByTagName('select');
-  
+
                 
 
     document.getElementById("Clear").addEventListener("click",
@@ -82,6 +95,9 @@ window.onload = function () {
             false);
 
 
+   //  var id = document.getElementsByName("0[2]");
+   // id[0].removeAttribute("disabled");
+ 
       
 }
 

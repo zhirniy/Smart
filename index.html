@@ -16,7 +16,7 @@
             <td style="display: none">
             </td>
             <td>
-            <select name="1" id="field1" placeholder="Field..." onchange="change(this.value, this.name)">
+            <select name="1" placeholder="Field..." onchange="change(this.value, this.name)">
                 <option  value="" disabled selected>Field...</option>
                 <option  value="size">size</option>
                 <option  value="forks">forks</option>
@@ -25,7 +25,7 @@
              </select>
              </td>
            <td>
-            <select name="2" id="operator1" placeholder="Operator..." onchange="change(this.value, this.name)">
+            <select name="2" disabled placeholder="Operator..." onchange="change(this.value, this.name)">
                 <option  value="" disabled selected>Operator...</option>
                 <option  value=":>">=></option>
                 <option  value=":<" >=<</option>
@@ -33,11 +33,11 @@
             </select>
            </td>
            <td>
-            <input type="number" id="number1" name="3" step="1" size="15" min="0" value="" placeholder="Value..." onchange="change(this.value, this.name)">
+            <input type="number" disabled name="3" step="1" size="15" min="0" value="" placeholder="Value..." onchange="change(this.value, this.name)">
              </td>
              <td>
-                <input type="button" id="row_add" class="row_add" value="Add Rule"></input>
-                <input type="button" id="row_del" class="row_del" value="Delete"></input>
+                <input type="button" class="row_add" value="Add Rule"></input>
+                <input type="button" class="row_del" value="Delete"></input>
             </td>
             </tbody>
             </table>
