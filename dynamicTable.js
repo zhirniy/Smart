@@ -11,6 +11,11 @@ var DynamicTable = (function(GLOB) {
             var evt = e || GLOB.event
               , trg = evt.target || evt.srcElement;
             if (trg.className && trg.className.indexOf("row_add") !== -1) {
+                 var class_ = document.getElementsByClassName("row_add");
+                 if(class_.length === 10){
+                    alert("Вы можете задать не больше 10 правил поиска");
+                    return;
+                 }
                 _addRow(trg.parentNode.parentNode, tBody);
             } else if (trg.className && trg.className.indexOf("row_del") !== -1) {
                 tBody.rows.length > 1 && _delRow(trg.parentNode.parentNode, tBody);
@@ -37,13 +42,13 @@ var DynamicTable = (function(GLOB) {
             var newNode = _correctNames(_rowTpl.cloneNode(true));
             tBody.insertBefore(newNode, before.nextSibling);
             _addNum(tBody);
-            setListeners();
+         //   setListeners();
         };
         var _delRow = function(row, tBody) {
         //    update(row, tBody);
             tBody.removeChild(row);
             _addNum(tBody);
-            setListeners();
+          //  setListeners();
             
         };
         var _addNum = function(tBody) {
@@ -55,7 +60,7 @@ var DynamicTable = (function(GLOB) {
 
         _correctNames(tBody.rows[0]);
         _addNum(tBody);
-        setListeners();
+       // setListeners();
 
     }
     ;
