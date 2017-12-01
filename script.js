@@ -96,6 +96,8 @@ window.onload = function () {
      input[0].value = "";
      select[0].value = "";
      select[1].value = ""; 
+     select[1].setAttribute("disabled", "disabled");
+     input[0].setAttribute("disabled", "disabled");
      value = {};              
      window.location.reload();
                           },
