@@ -3,6 +3,7 @@
     height: 30px;
     border-radius: 5px;
     margin: 5px;
+    text-align:center;
 
   }
 input[type="number"]{
@@ -10,6 +11,7 @@ input[type="number"]{
     height: 25px;
     border-radius: 5px;
     margin: 5px;
+    text-align:center;
 }
 
 input[type="button"]{

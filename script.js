@@ -68,10 +68,17 @@ window.onload = function () {
                               }
 
                            }
+
+                           if(url_search === undefined){
+                             document.getElementById("output").innerHTML = "Введите параметры поиска";
+                           }
+
+                           else{
                            
                            document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
                            count;   
-                        //   document.getElementById("output").innerHTML = url_search;
+                           //document.getElementById("output").innerHTML = url_search;
+                         }
 
                         }
                     }
@@ -88,7 +95,8 @@ window.onload = function () {
                 function () {
      input[0].value = "";
      select[0].value = "";
-     select[1].value = "";               
+     select[1].value = ""; 
+     value = {};              
      window.location.reload();
                           },
             false);
