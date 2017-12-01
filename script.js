@@ -27,6 +27,17 @@ var url_search;
   id[0].removeAttribute("disabled");
  }
 
+ function del(id_row){
+  //alert(id_row);
+ var tr = document.getElementsByTagName('tr');
+ tr = tr[id_row].cells[3];
+ //td = tr.childNodes[0];
+ td = tr.childNodes[1];
+ //td
+ //td.style.color = "green";
+ //alert(td.value);
+ }
+
 
 window.onload = function () {
   

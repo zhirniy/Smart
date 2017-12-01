@@ -18,6 +18,8 @@ var DynamicTable = (function(GLOB) {
                  }
                 _addRow(trg.parentNode.parentNode, tBody);
             } else if (trg.className && trg.className.indexOf("row_del") !== -1) {
+                var index = trg.parentNode.parentNode;
+                del(index.rowIndex);                
                 tBody.rows.length > 1 && _delRow(trg.parentNode.parentNode, tBody);
             }
         }
@@ -40,12 +42,12 @@ var DynamicTable = (function(GLOB) {
         };
         var _addRow = function(before, tBody) {
             var newNode = _correctNames(_rowTpl.cloneNode(true));
-            tBody.insertBefore(newNode, before.nextSibling);
+           tBody.insertBefore(newNode, before.nextSibling);
             _addNum(tBody);
          //   setListeners();
         };
         var _delRow = function(row, tBody) {
-        //    update(row, tBody);
+       
             tBody.removeChild(row);
             _addNum(tBody);
           //  setListeners();
