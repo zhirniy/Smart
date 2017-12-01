@@ -28,14 +28,29 @@ var url_search;
  }
 
  function del(id_row){
-  //alert(id_row);
- var tr = document.getElementsByTagName('tr');
- tr = tr[id_row].cells[3];
- //td = tr.childNodes[0];
- td = tr.childNodes[1];
- //td
- //td.style.color = "green";
- //alert(td.value);
+   var tr = document.getElementsByTagName('tr');
+/*for(var i = 1; i<2; i++){
+  tr+i = tr[id_row].cells[i];
+  td+i = (tr+i).childNodes[1];
+  td+i = (td+i).name;
+  alert(td+i);
+  //value[td[i]] = "";
+}*/
+
+ tr1 = tr[id_row].cells[3];
+ td1 = tr1.childNodes[1];
+ td1 = td1.name;
+ value[td1] = "";
+ tr2 = tr[id_row].cells[2];
+ td2 = tr2.childNodes[1];
+ td2 = td2.name;
+ value[td2] = "";
+  tr3 = tr[id_row].cells[1];
+ td3 = tr3.childNodes[1];
+ td3 = td3.name;
+ value[td3] = "";
+
+
  }
 
 
