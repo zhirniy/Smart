@@ -3,9 +3,9 @@ var select, url;
 var value={};
 var url_search;
 
-  var operator1 = document.getElementById("operator1");
- 
-  function change(params,id) {
+//функця записывает в объект value значения имени поля и его значения
+//Если поле не являетс первым к ключу(имени) добавляется знак "+"
+ function change(params,id) {
       var pattern = /[1-9]{1}\[1\]/;
       var text = id;
     
@@ -18,7 +18,7 @@ var url_search;
 
       access(id);
  } 
-
+//Функция дающая доступ к следующему полю при заполнении данного
  function access(id){
   var firstChar = id.charAt(2);
   firstChar = firstChar * 1 + 1;
@@ -26,42 +26,30 @@ var url_search;
   id = document.getElementsByName(id);
   id[0].removeAttribute("disabled");
  }
-
+//Функция удаляющая значения имени и значения из массива value при удалении строки
  function del(id_row){
    var tr = document.getElementsByTagName('tr');
-/*for(var i = 1; i<2; i++){
-  tr+i = tr[id_row].cells[i];
-  td+i = (tr+i).childNodes[1];
-  td+i = (td+i).name;
-  alert(td+i);
-  //value[td[i]] = "";
-}*/
 
- tr1 = tr[id_row].cells[3];
- td1 = tr1.childNodes[1];
- td1 = td1.name;
- value[td1] = "";
- tr2 = tr[id_row].cells[2];
- td2 = tr2.childNodes[1];
- td2 = td2.name;
- value[td2] = "";
-  tr3 = tr[id_row].cells[1];
- td3 = tr3.childNodes[1];
- td3 = td3.name;
- value[td3] = "";
+for(var i = 1; i<4; i++){
+
+  var tr_ = tr[id_row].cells[i];
+   td = tr_.childNodes[1];
+   td = td.name;
+   value[td] = "";
+
+}
 
 
  }
 
-
 window.onload = function () {
-  
+//При загрузке страницы мы будем прослушивать событие отпраки запроса на сервер 
+//и очистки всех полей  
   var clear = document.getElementById("Clear");
   var input = document.getElementsByTagName('input');
-  var select = document.getElementsByTagName('select');
   input[2].style.display = "none";
 
-
+//При отправке запроса на сервер мы через GET запрос записываем дополнительные араметры поиска из массива value
   document.getElementById("btnGet").onclick = function () {
   url_search = undefined;
   url = "https://api.github.com/search/repositories?q=";
@@ -76,7 +64,7 @@ window.onload = function () {
 }
 
   url = "https://api.github.com/search/repositories?q=" + url_search;
-  //document.getElementById("output").innerHTML = url_search;
+  
   var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
   xhr.open("GET", url, false); // Настройка объекта для отправки синхронного GET запроса
    xhr.onreadystatechange = function () {
@@ -103,7 +91,7 @@ window.onload = function () {
                            
                            document.getElementById("output").innerHTML = "Общее колличество совпадений:" + text.total_count + "<br>" + 
                            count;   
-                           //document.getElementById("output").innerHTML = url_search;
+                          
                          }
 
                         }
@@ -114,7 +102,7 @@ window.onload = function () {
   }       
 
   
-
+//При нажатии на кнопку Cleaar делаем перезагрузку страницы и очищаем первое поле 
                 
 
     document.getElementById("Clear").addEventListener("click",

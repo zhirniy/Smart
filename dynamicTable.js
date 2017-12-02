@@ -44,13 +44,13 @@ var DynamicTable = (function(GLOB) {
             var newNode = _correctNames(_rowTpl.cloneNode(true));
            tBody.insertBefore(newNode, before.nextSibling);
             _addNum(tBody);
-         //   setListeners();
+         ;
         };
         var _delRow = function(row, tBody) {
        
             tBody.removeChild(row);
             _addNum(tBody);
-          //  setListeners();
+          
             
         };
         var _addNum = function(tBody) {
@@ -62,7 +62,7 @@ var DynamicTable = (function(GLOB) {
 
         _correctNames(tBody.rows[0]);
         _addNum(tBody);
-       // setListeners();
+       
 
     }
     ;
